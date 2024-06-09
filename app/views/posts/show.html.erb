@@ -1,6 +1,11 @@
 <%= @post.title %>
 <%= @post.content %>
 
-<%= link_to 'Editar', edit_post_path(@post), class: "btn btn-outline-warning shadow-sm" %>
-<%= link_to 'Deletar', post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } %>
+<% if policy(@post).edit? %>
+  <%= link_to "Editar", edit_post_path(@post), class: "btn btn-outline-warning shadow-sm" %>
+<% end %>
+<% if policy(@post).destroy? %>
+  <%= link_to "Deletar", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } %>
+<% end %>
+
 <%= link_to 'Voltar', root_path, class: "btn btn-outline-warning shadow-sm" %>

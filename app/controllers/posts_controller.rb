@@ -1,16 +1,24 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
+  def index
+    @posts = policy_scope(Post)
+  end
+
   def show
   end
 
   def new
     @post = Post.new
+    authorize @post
   end
 
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+
+    authorize @post
+
     if @post.save
       redirect_to root_path
     else
@@ -42,6 +50,7 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+    authorize @post
   end
 
   def post_params
