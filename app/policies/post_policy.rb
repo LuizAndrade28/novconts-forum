@@ -18,20 +18,20 @@ class PostPolicy < ApplicationPolicy
   end
 
   def edit?
-    owner?  
+    owner_or_admin?
   end
 
   def update?
-    owner?
+    owner_or_admin?
   end
 
   def destroy?
-    owner?
+    owner_or_admin?
   end
 
   private
 
-  def owner?
-    record.user == user
+  def owner_or_admin?
+    record.user == user || user.admin
   end
 end
