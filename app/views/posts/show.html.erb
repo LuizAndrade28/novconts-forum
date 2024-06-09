@@ -1,0 +1,23 @@
+<%= @post.title %>
+<%= @post.user.first_name %>
+<%= @post.content %>
+
+<% if policy(@post).edit? %>
+  <%= link_to "Editar", edit_post_path(@post), class: "btn btn-outline-warning shadow-sm" %>
+<% end %>
+<% if policy(@post).destroy? %>
+  <%= link_to "Deletar", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } %>
+<% end %>
+
+<%= link_to "Comentar", new_post_comment_path(@post) %>
+
+<% @comments.each do |comment| %>
+  <h3><%= comment.user.first_name %></h3>
+  <p><%= comment.created_at %></p>
+  <%= comment.content %>
+  <% if policy(comment).destroy? %>
+    <%= link_to "Deletar", post_comment_path(@post, comment), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } %>
+  <% end %>
+<% end %>
+
+<%= link_to 'Voltar', root_path, class: "btn btn-outline-warning shadow-sm" %>
