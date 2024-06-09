@@ -20,6 +20,6 @@ class CommentPolicy < ApplicationPolicy
   private
 
   def admin?
-    user.admin
+    user&.admin
   end
 end

@@ -1,6 +1,6 @@
 <% @posts.each do |post| %>
   <div class="d-flex flex-column">
-    <p><%= post.user.id %></p>
+    <p><%= post.user.first_name %></p>
     <p><%= post.title %></p>
     <p><%= post.content %></p>
   <%= link_to 'Mostrar mais', post_path(post.id), class: "btn btn-outline-warning shadow-sm" %>
