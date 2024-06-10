@@ -1,12 +1,26 @@
-.navbar-lewagon {
+.navbar {
   justify-content: space-between;
-  background: white;
+  background: #4b588969;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar .navbar-brand img {
   width: 40px;
+}
+
+.login-text {
+  color: white;
+  // transition: all .9s ease .1s;
+  // transition-duration: .5s;
+  border: 1px solid white;
+  transition: 1.2s;
+}
+
+.login-text:hover {
+  color: #4b5889c9;
+  // font-weight: bolder;
+  border: 1px solid #4b5889c9;
 }
