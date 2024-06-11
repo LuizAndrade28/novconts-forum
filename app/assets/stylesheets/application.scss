@@ -41,11 +41,12 @@ h5,
 h6 {
   font-family: $headers-font;
   font-weight: 900;
-  color: #3a383a;
+  color: #3a383a !important;
+  margin: 0;
 }
 
 p {
   font-family: $body-font;
-  color: #3a383a;
+  color: #3a383a !important;
   margin: 0;
 }

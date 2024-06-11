@@ -65,6 +65,8 @@ gem "sassc-rails"
 
 gem "ransack"
 
+gem "kaminari"
+
 # Use Pundit for authorization
 gem "pundit"
 
