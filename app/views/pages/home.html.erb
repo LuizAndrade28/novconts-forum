@@ -1,18 +1,33 @@
-<div class="container">
-  <div class="col-md-12 p-0">
-    <div class="d-flex flex-column align-items-center">
-      <div>
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="col-md-8 p-0">
+    <div class="d-flex flex-column">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <%= render 'drop_down_form' %>
+        <%= render 'search_form' %>
+      </div>
+      <div class="d-flex flex-column">
         <% @posts.each do |post| %>
-          <div class="d-flex flex-column m-3">
-            <p><%= post.user.first_name %></p>
-            <p><%= post.title %></p>
-            <p><%= post.content %></p>
-          <%= link_to 'Mostrar mais', post_path(post.id), class: "btn btn-outline-warning shadow-sm" %>
+          <hr>
+          <div class="d-flex align-items-center">
+            <span class="d-flex justify-content-center align-items-center avatar p-2 me-2">
+              <%= post.user.first_name[0].capitalize %>
+            </span>
+            <p class="me-3 fst-italic user-name"><%= "#{post.user.first_name} #{post.user.last_name}" %></p>
+            <i class="fa-solid fa-circle me-3 dot-post"></i>
+            <p class="fst-italic user-name"><%= post.created_at.strftime("%d/%m/%Y") %></p>
+          </div>
+            <h4><%= post.title %></h4>
+            <p class="text-comp"><%= truncate(post.content, length: 300) %> <%= link_to 'mostrar mais', post_path(post.id), class:"fst-italic"%></p>
+          <div class="comments-comp">
+            <p><%= post.comments.size %></p>
+            <i class="fa-regular fa-comment ms-1" style="color: #4b588969;"></i>
           </div>
         <% end %>
-
-        <%= link_to 'Criar novo post', new_post_path, class: "btn btn-outline-warning shadow-sm" %>
       </div>
-    <div>
+    </div>
   </div>
-<div>
+</div>
+
+<%= link_to new_post_path do %>
+  <div class="add-post-btn"><i class="fa-solid fa-circle-plus fa-2xl"></i></div>
+<% end %>

@@ -1,0 +1,21 @@
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #B2B7CB;
+  height: 15vh;
+  margin-top: 7vh;
+}
+
+.footer-section p {
+  color: #6B6C6C;
+  text-align: center;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
