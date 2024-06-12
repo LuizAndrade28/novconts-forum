@@ -10,3 +10,39 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+html {
+  min-height: 100vh;
+  flex: 1;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FAFAFA;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: fit-content;
+}
+
+.body-content {
+  min-height: 90vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $headers-font;
+  font-weight: 900;
+  color: #3a383a !important;
+  margin: 0;
+}
+
+p {
+  font-family: $body-font;
+  color: #3a383a !important;
+  margin: 0;
+}

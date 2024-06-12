@@ -1,0 +1,22 @@
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #B2B7CB;
+  height: 15vh;
+  margin-top: 7vh;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.footer-section p {
+  color: white !important;
+  text-align: center;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,30 @@
+.text-comp {
+  background-color:rgba(211, 211, 211, 0.49);
+  font-weight: bolder;
+  font-size: .8em;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.comments-comp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6%;
+  height: 3%;
+  color: #4b588969;
+  font-weight: bolder;
+  font-size: 100%;
+  margin-top: 8px;
+}
+
+.user-name {
+  font-size: .9em;
+  color: #3a383a;
+}
+
+.dot-post {
+  color: #878da7;
+  font-size: .4em;
+  margin: 1px;
+}

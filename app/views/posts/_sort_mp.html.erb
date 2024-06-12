@@ -1,0 +1,11 @@
+<div class="sort-by">
+  <%= form_with url: meus_posts_path, method: :get, local: true do %>
+    <select name="sort_by" aria-label="select">
+      <option value="created_at_asc" <%= "selected" if params[:sort_by] == "created_at_asc" %>>Mais novo</option>
+      <option value="created_at_desc" <%= "selected" if params[:sort_by] == "created_at_desc" %>>Mais antigo</option>
+      <option value="title_asc" <%= "selected" if params[:sort_by] == "title_asc" %>>A-Z</option>
+      <option value="title_desc" <%= "selected" if params[:sort_by] == "title_desc" %>>Z-A</option>
+    </select>
+    <input type="submit" value="Ordenar">
+  <% end %>
+</div>

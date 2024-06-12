@@ -3,10 +3,25 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = policy_scope(Post)
+    @posts_count = policy_scope(Post).count
+    @posts = policy_scope(Post).page(params[:page]).per(4)
+    case params[:sort_by]
+    when "created_at_asc"
+     @posts = @posts.order(created_at: :desc)
+    when "created_at_desc"
+     @posts = @posts.order(created_at: :asc)
+    when "title_asc"
+    @posts = @posts.order(title: :asc)
+    when "title_desc"
+    @posts = @posts.order(title: :desc)
+    else
+      @posts
+    end
   end
 
   def show
+    @previous_post = Post.where("id < ?", @post.id).order(id: :desc).first
+    @next_post = Post.where("id > ?", @post.id).order(id: :asc).first
     @comments = Comment.where(post: @post)
   end
 
@@ -22,7 +37,7 @@ class PostsController < ApplicationController
     authorize @post
 
     if @post.save
-      redirect_to root_path
+      redirect_to post_path(@post) || root_path, notice: 'Post criado com sucesso.'
     else
       render :new, status: :unprocessable_entity, flash: {
         error: "Por favor, verifique se preencheu corretamente todos os campos."
@@ -35,7 +50,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to root_path
+      redirect_to request.referer || root_path, notice: 'Post atualizado com sucesso.'
     else
       render :edit, status: :unprocessable_entity, flash: {
         error: "Por favor, verifique se preencheu corretamente todos os campos."
@@ -45,7 +60,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to root_path
+    redirect_to request.referer || root_path, notice: 'Post deletado com sucesso.'
   end
 
   private

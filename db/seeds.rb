@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+titulos = ['O Futuro das Construções Sustentáveis: Como Adotar Práticas Ecológicas no Seu Projeto', 'Gerenciamento de Projetos na Construção Civil: Dicas para Aumentar a Eficiência e Reduzir Custos', 'Segurança no Canteiro de Obras: Como Garantir a Proteção dos Trabalhadores', 'A Importância da Manutenção Preventiva em Estruturas de Engenharia Civil', 'Tecnologia e Inovação na Construção de Infraestruturas Urbanas']
+conteudos = ['Com as mudanças climáticas se tornando uma preocupação global crescente, a construção sustentável é mais importante do que nunca. Neste post, vamos discutir diversas práticas ecológicas que podem ser incorporadas em projetos de construção civil para reduzir o impacto ambiental e promover a sustentabilidade. Desde o uso de materiais reciclados até a implementação de sistemas de energia renovável, há muitas maneiras de tornar seu projeto mais ecológico. Você já adotou alguma dessas práticas? Compartilhe suas experiências!', 'O gerenciamento eficiente de projetos é essencial para o sucesso na construção civil. Neste post, vamos explorar algumas estratégias e ferramentas que podem ajudar a melhorar a organização, comunicação e execução de projetos de construção. Desde a utilização de softwares de gerenciamento de projetos até a implementação de metodologias ágeis, essas dicas são projetadas para aumentar a eficiência e reduzir custos. Você utiliza alguma dessas estratégias no seu dia a dia? Deixe suas dicas nos comentários!', 'A segurança dos trabalhadores é uma prioridade fundamental em qualquer projeto de construção. Neste post, vamos abordar as melhores práticas para garantir um ambiente de trabalho seguro no canteiro de obras. Discutiremos a importância do treinamento adequado, o uso de equipamentos de proteção individual (EPIs), e a implementação de protocolos de segurança rigorosos. Quais medidas de segurança você implementa no seu local de trabalho? Compartilhe suas práticas conosco!', 'Manter estruturas de engenharia civil em bom estado é crucial para garantir sua longevidade e segurança. Neste post, vamos discutir a importância da manutenção preventiva e como ela pode ajudar a evitar problemas graves no futuro. Exploraremos técnicas de inspeção, métodos de reparo e as melhores práticas para manter estruturas como pontes, edifícios e estradas em perfeito estado. Você realiza manutenções preventivas regularmente? Conte-nos sobre sua abordagem!', 'As cidades estão crescendo rapidamente, e com isso vem a necessidade de infraestruturas urbanas mais eficientes e resilientes. Neste post, vamos explorar como a tecnologia e a inovação estão transformando a construção de infraestruturas urbanas. Discutiremos o uso de sensores inteligentes para monitoramento de tráfego, sistemas de gestão de água avançados, e métodos de construção que minimizam o impacto ambiental. Qual tecnologia você acha que terá o maior impacto nas cidades do futuro? Participe da discussão nos comentários!']
+
+5.times do |i|
+  Post.create!(
+    title: titulos[i],
+    content: conteudos[i],
+    user: User.all.sample
+  )
+end

@@ -1,23 +1,64 @@
-<%= @post.title %>
-<%= @post.user.first_name %>
-<%= @post.content %>
+<div class="outer-div-vp">
+  <div id="post-before-after">
+    <% if @previous_post %>
+      <%= link_to '< Post Anterior', post_path(@previous_post, sort_by: params[:sort_by]) %>
+    <% end %>
 
-<% if policy(@post).edit? %>
-  <%= link_to "Editar", edit_post_path(@post), class: "btn btn-outline-warning shadow-sm" %>
-<% end %>
-<% if policy(@post).destroy? %>
-  <%= link_to "Deletar", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } %>
-<% end %>
+    <% if @next_post %>
+    <div class="d-flex align-items-center">
+      <%= link_to 'Próximo Post', post_path(@next_post, sort_by: params[:sort_by]) %>
+    </div>
+    <% end %>
+  </div>
 
-<%= link_to "Comentar", new_post_comment_path(@post) %>
+  <div id="header-vp">
+    <h6><%= @post.title %></h6>
+    <div class="d-flex align-items-center mb-2">
+      <span class="avatar-post-small p-2 me-2">
+        <%= @post.user.first_name[0].capitalize %>
+      </span>
+      <p class="me-3 fst-italic user-name"><%= "#{@post.user.first_name}"%></p>
+      <i class="fa-solid fa-circle me-3 dot-post"></i>
+      <p class="fst-italic user-name"><%= @post.created_at.strftime("%d/%m/%Y") %></p>
+    </div>
+  </div>
+  <p id="content-vp">
+    <%= @post.content %>
+    <div class="d-flex">
+      <% if policy(@post).edit? %>
+        <%= link_to "Editar", edit_post_path(@post), class: "links-mp me-2" %>
+      <% end %>
+      <% if policy(@post).destroy? %>
+        <%= link_to "Deletar", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" }, class: "links-mp" %>
+      <% end %>
+    </div>
+  </p>
+</div>
 
-<% @comments.each do |comment| %>
-  <h3><%= comment.user.first_name %></h3>
-  <p><%= comment.created_at %></p>
-  <%= comment.content %>
-  <% if policy(comment).destroy? %>
-    <%= link_to "Deletar", post_comment_path(@post, comment), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } %>
+<div class="outer-div-vp">
+  <div id="add-cms">
+    <p class="me-4">Comentários (<%= @post.comments.size %>)</p>
+    <% if @post&.user != current_user %>
+      <%= link_to "Adicionar comentário", new_post_comment_path(@post), id: "add-comment" %>
+    <% end %>
+  </div>
+  <% @comments.each do |comment| %>
+    <div class="d-flex align-items-start">
+      <span class="avatar-post-small p-2 me-2">
+        <%= @post.user.first_name[0].capitalize %>
+      </span>
+      <div id="cms">
+        <div class="d-flex justify-content-start align-items-center">
+          <p class="me-3 fst-italic user-name"><%= "#{@post.user.first_name}"%></p>
+          <i class="fa-solid fa-circle me-3 dot-post"></i>
+          <p class="fst-italic user-name"><%= @post.created_at.strftime("%d/%m/%Y") %></p>
+        </div>
+        <p><%= comment.content %></p>
+      </div>
+    </div>
+    <%# ONLY TO ADMIN %>
+    <% if policy(comment).destroy? %>
+      <%= link_to "Deletar", post_comment_path(@post, comment), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } %>
+    <% end %>
   <% end %>
-<% end %>
-
-<%= link_to 'Voltar', root_path, class: "btn btn-outline-warning shadow-sm" %>
+</div>

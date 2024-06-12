@@ -1,0 +1,15 @@
+.add-post-btn {
+  display: flex;
+  justify-content: end;
+  position: fixed;
+  bottom: 36px;
+  right: 16px;
+  z-index: 1000;
+}
+
+.add-post-btn i {
+  font-size: 3em !important;
+  color: #878da7;
+  padding-right: 2px;
+  padding-bottom: 2px;
+}
