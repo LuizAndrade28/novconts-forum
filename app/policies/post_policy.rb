@@ -18,7 +18,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def edit?
-    owner_or_admin?
+    record.user == user
   end
 
   def update?

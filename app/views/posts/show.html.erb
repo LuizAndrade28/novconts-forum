@@ -1,4 +1,7 @@
+<%# POST SECTION %>
 <div class="outer-div-vp">
+
+  <%# LINKS OPTIONS - PREVIOUS OR NEXT POST %>
   <div id="post-before-after">
     <% if @previous_post %>
       <%= link_to '< Post Anterior', post_path(@previous_post, sort_by: params[:sort_by]) %>
@@ -6,11 +9,12 @@
 
     <% if @next_post %>
     <div class="d-flex align-items-center">
-      <%= link_to 'Próximo Post', post_path(@next_post, sort_by: params[:sort_by]) %>
+      <%= link_to 'Próximo Post >', post_path(@next_post, sort_by: params[:sort_by]) %>
     </div>
     <% end %>
   </div>
 
+  <%# POST INFO HEADER %>
   <div id="header-vp">
     <h6><%= @post.title %></h6>
     <div class="d-flex align-items-center mb-2">
@@ -22,26 +26,35 @@
       <p class="fst-italic user-name"><%= @post.created_at.strftime("%d/%m/%Y") %></p>
     </div>
   </div>
-  <p id="content-vp">
-    <%= @post.content %>
-    <div class="d-flex">
-      <% if policy(@post).edit? %>
-        <%= link_to "Editar", edit_post_path(@post), class: "links-mp me-2" %>
-      <% end %>
-      <% if policy(@post).destroy? %>
-        <%= link_to "Deletar", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" }, class: "links-mp" %>
-      <% end %>
-    </div>
-  </p>
+
+  <%# POST CONTENT %>
+  <p id="content-vp"><%= @post.content %></p>
+
+  <%# LINKS TO EDIT OR DELETE POST IF POST OWNER // IF ADMIN, ONLY DELETE %>
+  <div class="d-flex">
+    <% if policy(@post).edit? %>
+      <%= link_to "Editar", edit_post_path(@post), class: "links-mp me-2" %>
+    <% end %>
+    <% if policy(@post).destroy? %>
+      <%= link_to "Deletar", post_path(@post),
+      data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" },
+      class: "links-mp" %>
+    <% end %>
+  </div>
 </div>
 
+<%# COMMENTS SECTION %>
 <div class="outer-div-vp">
+
+  <%# HEADER AND ADD COMMENT SECTION %>
   <div id="add-cms">
     <p class="me-4">Comentários (<%= @post.comments.size %>)</p>
     <% if @post&.user != current_user %>
       <%= link_to "Adicionar comentário", new_post_comment_path(@post), id: "add-comment" %>
     <% end %>
   </div>
+
+  <%# COMMENTS CARDS %>
   <% @comments.each do |comment| %>
     <div class="d-flex align-items-start">
       <span class="avatar-post-small p-2 me-2">
@@ -56,9 +69,12 @@
         <p><%= comment.content %></p>
       </div>
     </div>
-    <%# ONLY TO ADMIN %>
+
+    <%# LINK TO DELETE POST IF ADMIN %>
     <% if policy(comment).destroy? %>
-      <%= link_to "Deletar", post_comment_path(@post, comment), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } %>
+      <%= link_to "Deletar", post_comment_path(@post, comment),
+      data: { turbo_method: :delete,
+      turbo_confirm: "Você tem certeza?" } %>
     <% end %>
   <% end %>
 </div>

@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @post
     else
-      render 'posts/show', status: :unprocessable_entity, flash: {
+      render :new, status: :unprocessable_entity, flash: {
         error: "Por favor, verifique se preencheu corretamente todos os campos."
       }
     end
