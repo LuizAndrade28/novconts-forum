@@ -6,5 +6,4 @@ class Comment < ApplicationRecord
   validates :content, length: { maximum: 1000 }
 
   default_scope -> { order(created_at: :desc) }
-  # paginates_per 10
 end
