@@ -2,6 +2,7 @@
   justify-content: space-between;
   background: #4b588969;
   margin-bottom: 7vh;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
 .navbar .navbar-collapse {
@@ -14,14 +15,11 @@
 
 .login-text {
   color: white;
-  // transition: all .9s ease .1s;
-  // transition-duration: .5s;
   border: 1px solid white;
   transition: 1.2s;
 }
 
 .login-text:hover {
   color: #4b5889c9;
-  // font-weight: bolder;
   border: 1px solid #4b5889c9;
 }

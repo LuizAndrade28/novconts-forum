@@ -1,9 +1,12 @@
 <div class="row justify-content-center my-4">
-  <div class="col-md-4 bg-white p-5 mt-5 rounded-4 shadow">
+  <div class="col-md-4 bg-white p-5 mt-2 rounded-4 shadow">
     <h2 class="text-center mb-4 userw-title-text">Cadastrar</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
+      <% if f.object.errors[:base].present? %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence %>
+      <% end %>
 
       <div class="form-inputs">
         <%= f.input :first_name,
@@ -12,8 +15,7 @@
                     autofocus: true %>
         <%= f.input :last_name,
                     label: "Sobrenome",
-                    required: true,
-                    autofocus: true %>
+                    required: true %>
         <%= f.input :email,
                     label: "E-mail",
                     required: true,
@@ -33,7 +35,7 @@
       <div class="form-actions d-flex">
         <%= f.button :submit,
                     "Confirmar cadastro",
-                    class: 'btn btn-outline-warning mb-1 rounded-3 shadow-sm flex-grow-1 btn btn-outline-warning my-2 mb-4 me-3 w-100' %>
+                    class: 'rounded-3 shadow-sm flex-grow-1 btn btn-outline-primary my-2 mb-4 me-3 w-100' %>
       </div>
     <% end %>
 

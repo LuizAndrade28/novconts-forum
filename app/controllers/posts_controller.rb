@@ -20,6 +20,8 @@ class PostsController < ApplicationController
   end
 
   def show
+    @previous_post = Post.where("id < ?", @post.id).order(id: :desc).first
+    @next_post = Post.where("id > ?", @post.id).order(id: :asc).first
     @comments = Comment.where(post: @post)
   end
 
