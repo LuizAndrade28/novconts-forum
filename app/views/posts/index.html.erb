@@ -1,27 +1,35 @@
 
-<div class="outer-div-mp">
-  <div class="header-mp">
+<div id="outer-div-mp">
+
+  <%# HEADER MY POSTS - CONTAINS TITLE AND FILTER  %>
+  <div id="header-mp">
     <h6 class="fst-italic">Meus posts (<%= @posts_count %>)</h6>
     <%= render 'sort_mp' %>
   </div>
+
+  <%# POSTS SECTION - CONTAINS POSTS CARDS  %>
   <% @posts.each do | post | %>
     <div class="card-mp mb-3">
       <div class="d-flex justify-content-between w-100 mb-2">
-        <h6><%= link_to truncate(post.title, length: 50), post_path(post), class: "text-dark" %></h6>
+        <h6><%= link_to truncate(post.title, length: 50), post_path(post), class: "card-mp-text" %></h6>
         <div class="d-flex">
           <%= link_to edit_post_path(post) do %>
           <div><i id="edit-icon" class="fa-solid fa-pen me-3"></i></div>
           <% end %>
-          <%= link_to post_path(post), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } do %>
+          <%= link_to post_path(post),
+            data: { turbo_method: :delete,
+            turbo_confirm: "Você tem certeza?" } do %>
             <div><i id="delete-icon" class="fa-solid fa-xmark"></i></div>
           <% end %>
         </div>
-        <p class="fst-italic"><%= post.created_at.strftime("%d/%m/%Y") %></p>
+        <p class="fst-italic card-mp-text"><%= post.created_at.strftime("%d/%m/%Y") %></p>
       </div>
-      <p class="mb-2"><%= truncate(post.content, length: 200) %></p>
+      <p class="mb-2 card-mp-text"><%= truncate(post.content, length: 200) %></p>
     </div>
   <% end %>
-  <div class="bottom-mp">
+
+  <%# BOTTOM POSTS - CONTAINS PAGINATION AND BACK ACTION %>
+  <div id="bottom-mp">
     <%= link_to 'Voltar', request.referer || root_path, class: "links-mp" %>
     <div class="pagination-container">
       <%= paginate @posts, window: 2 %>
@@ -29,8 +37,5 @@
   </div>
 </div>
 
-
-
-<%= link_to new_post_path do %>
-  <div class="add-post-btn"><i class="fa-solid fa-circle-plus fa-2xl"></i></div>
-<% end %>
+<%# BUTTON TO ADD NEW POST %>
+<%= render 'shared/btn_add_post' %>

@@ -3,25 +3,30 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
+    # Counting the total number of posts
     @posts_count = policy_scope(Post).count
+
+    # Searching for owner posts and sorting them
     @posts = policy_scope(Post).page(params[:page]).per(4)
     case params[:sort_by]
     when "created_at_asc"
-     @posts = @posts.order(created_at: :desc)
+      @posts = @posts.order(created_at: :asc)
     when "created_at_desc"
-     @posts = @posts.order(created_at: :asc)
+      @posts = @posts.order(created_at: :desc)
     when "title_asc"
-    @posts = @posts.order(title: :asc)
+      @posts = @posts.order(title: :asc)
     when "title_desc"
-    @posts = @posts.order(title: :desc)
+      @posts = @posts.order(title: :desc)
     else
-      @posts
+      @posts = @posts.order(created_at: :desc) # Default sorting
     end
   end
 
   def show
+    # Searching for posts based on ID parameters
     @previous_post = Post.where("id < ?", @post.id).order(id: :desc).first
     @next_post = Post.where("id > ?", @post.id).order(id: :asc).first
+
     @comments = Comment.where(post: @post)
   end
 
@@ -60,7 +65,11 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to request.referer || root_path, notice: 'Post deletado com sucesso.'
+    if @post.user == current_user
+      redirect_to request.referer, notice: 'Post deletado com sucesso.'
+    else
+      redirect_to root_path, notice: 'Post deletado com sucesso.'
+    end
   end
 
   private

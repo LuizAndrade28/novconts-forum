@@ -1,4 +1,4 @@
-.footer-section {
+#footer-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,14 +9,14 @@
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
-.footer-section p {
+#footer-section p {
   color: white !important;
   text-align: center;
 }
 
-.footer-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+// .footer-info {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+// }

@@ -1,4 +1,4 @@
-.add-post-btn {
+#add-post-btn {
   display: flex;
   justify-content: end;
   position: fixed;
@@ -7,7 +7,7 @@
   z-index: 1000;
 }
 
-.add-post-btn i {
+#add-post-btn i {
   font-size: 3em !important;
   color: #878da7;
   padding-right: 2px;
