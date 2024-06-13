@@ -32,6 +32,9 @@
 
 #header-vp h6 {
   font-size: 2.5vmin;
+  width: 80%;
+  height: auto;
+  overflow-wrap: break-word;
 }
 
 #header-vp p {
@@ -106,6 +109,12 @@
   padding: 1.5vw;
   margin-bottom: 5px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  overflow-wrap: break-word;
+}
+
+#content-vp p {
+  width: 100%;
+  height: auto;
   color: #3A383A !important;
   text-align: justify;
   font-size: 2.3vmin;
@@ -119,4 +128,10 @@
   height: 10%;
   margin-bottom: 2vw;
   margin-top: .8vw;
+}
+
+#limit-cms {
+  width: 100%;
+  height: auto;
+  overflow-wrap: break-word;
 }

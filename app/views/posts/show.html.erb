@@ -28,7 +28,9 @@
   </div>
 
   <%# POST CONTENT %>
-  <p id="content-vp"><%= @post.content %></p>
+  <div id="content-vp">
+    <p><%= @post.content %></p>
+  </div>
 
   <%# LINKS TO EDIT OR DELETE POST IF POST OWNER // IF ADMIN, ONLY DELETE %>
   <div class="d-flex">
@@ -64,7 +66,7 @@
           <i class="fa-solid fa-circle me-3 dot-post"></i>
           <p class="fst-italic user-name"><%= comment.created_at.strftime("%d/%m/%Y") %></p>
         </div>
-        <p><%= comment.content %></p>
+        <p id="limit-cms"><%= comment.content %></p>
       </div>
     </div>
 

@@ -55,6 +55,9 @@
 .card-mp-text {
   text-align: justify;
   color: #3A383A !important;
+  width: 100%;
+  height: auto;
+  overflow-wrap: break-word;
 }
 
 #edit-icon {

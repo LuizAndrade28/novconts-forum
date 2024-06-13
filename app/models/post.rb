@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :title, uniqueness: true
   validates :content, presence: true
-  validates :title, length: { maximum: 255 }
+  validates :title, length: { maximum: 120 }
   validates :content, length: { maximum: 1000 }
 
   # Searchable attributes
