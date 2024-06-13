@@ -124,28 +124,21 @@ O sistema valida as credenciais fornecidas em seu banco de dados de usuários. S
 ## Observações gerais
 
 1. Gemas:
+   
    Além das gemas default que vem no processo de criação de um novo projeto rails, houve a necessidade de inserção de novas gemas.
-   > Bootstrap
-   Utilizado para customização do layout e componentes, bem como, responsividade do aplicativo.
-   > Devise
-   Utilizado para lidar com o sistema dos usuários e sua autenticação no aplicativo.
-   > Devise=i18n
-   Usado na aplicação para tradução da biblioteca original do Devise para o pt-BR. Importante para o usuário final.
-   > Rails-i18n
-   Usado na aplicação para tradução da biblioteca original do Rails para o pt-BR. Importante para o usuário final.
-   > Simple_form
-   Criação de formulários.
-   > Ransack
-   Buscas avançadas na plataforma. Essa gema propiciou em poucas etapas, a possibilidade do usuário procurar por títulos de posts, nome dos usuários ou e-mail dos usuários, em poucos cliques.
-   > Kaminari
-   Customização das páginas 'home' e 'meus_posts', para limitar a quantidade de posts em cada e criar um sistema de paginação dentro das mesmas.
-   > Pundit
-   Usado na autorização dos usuários. Para garantir que nenhum usuário acesse, edite ou delete dados que não sejam seus.
-3. Layout:
-   > Responsividade
-   A responsividade do layout foi alcançada através do Bootstrap e CSS.
-   > Interatividade
-   O aplicativo mesclou um layout clean e responsivo, com algumas interatividades para melhor funcionamento, como filtros, sistema de busca, múltiplos locais para interação e manipulação dos posts.
-   > Segurança
-   Importante ressaltar que os usuários só podem ter ser posts manipulados por eles mesmos e por administradores (caso seja necessário). 
+   
+   > Bootstrap - Utilizado para customização do layout e componentes, bem como, responsividade do aplicativo.
+   > Devise - Utilizado para lidar com o sistema dos usuários e sua autenticação no aplicativo.
+   > Devise=i18n - Usado na aplicação para tradução da biblioteca original do Devise para o pt-BR. Importante para o usuário final.
+   > Rails-i18n - Usado na aplicação para tradução da biblioteca original do Rails para o pt-BR. Importante para o usuário final.
+   > Simple_form - Criação de formulários.
+   > Ransack - Buscas avançadas na plataforma. Essa gema propiciou em poucas etapas, a possibilidade do usuário procurar por títulos de posts, nome dos usuários ou e-mail dos usuários, em poucos cliques.
+   > Kaminari - Customização das páginas 'home' e 'meus_posts', para limitar a quantidade de posts em cada e criar um sistema de paginação dentro das mesmas.
+   > Pundit - Usado na autorização dos usuários. Para garantir que nenhum usuário acesse, edite ou delete dados que não sejam seus.
+   
+2. Layout:
+   
+   > Responsividade - A responsividade do layout foi alcançada através do Bootstrap e CSS.
+   > Interatividade - O aplicativo mesclou um layout clean e responsivo, com algumas interatividades para melhor funcionamento, como filtros, sistema de busca, múltiplos locais para interação e manipulação dos posts.
+   > Segurança - Importante ressaltar que os usuários só podem ter ser posts manipulados por eles mesmos e por administradores (caso seja necessário). 
    
