@@ -70,11 +70,12 @@
       </div>
     </div>
 
-    <%# LINK TO DELETE POST IF ADMIN %>
+    <%# LINK TO DELETE POST IF USER IS ADMIN %>
     <% if policy(comment).destroy? %>
       <%= link_to "Deletar", post_comment_path(@post, comment),
       data: { turbo_method: :delete,
-      turbo_confirm: "Você tem certeza?" } %>
+      turbo_confirm: "Você tem certeza?" },
+      class: "links-mp" %>
     <% end %>
   <% end %>
 </div>

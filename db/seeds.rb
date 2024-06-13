@@ -143,16 +143,31 @@ end
   )
 end
 
+# non_admin_users = User.where(admin: nil).to_a
+
+# Post.all.each_with_index do |post, i|
+#   5.times do |a|
+#     non_admin_users.shuffle!
+#     user = non_admin_users.first
+#     Comment.create!(
+#       content: comments[i][a],
+#       user: user,
+#       post: post
+#     )
+#   end
+# end
+
 non_admin_users = User.where(admin: nil).to_a
 
 Post.all.each_with_index do |post, i|
+  eligible_users = non_admin_users.reject { |user| user == post.user }
+  eligible_users.shuffle!
   5.times do |a|
-    non_admin_users.shuffle!
-    user = non_admin_users.first
-    Comment.create!(
-      content: comments[i][a],
-      user: user,
-      post: post
-    )
+    user = eligible_users.sample
+      Comment.create!(
+        content: comments[i][a],
+        user: user,
+        post: post
+      )
   end
 end

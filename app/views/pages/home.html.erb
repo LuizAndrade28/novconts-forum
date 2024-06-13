@@ -20,7 +20,7 @@
           <p class="fst-italic user-name"><%= post.created_at.strftime("%d/%m/%Y") %></p>
         </div>
           <h5 id="title-comp"><%= truncate(post.title, length: 80) %></h5>
-          <p id="text-comp"><%= truncate(post.content, length: 300) %> <%= link_to 'mostrar mais', post_path(post.id), class:"fst-italic"%></p>
+          <p id="text-comp"><%= truncate(post.content, length: 300) %> <%= link_to 'ver mais', post_path(post.id), class:"fst-italic"%></p>
         <div id="comments-comp">
           <p><%= post.comments.size %></p>
           <i class="fa-regular fa-comment ms-1"></i>
