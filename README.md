@@ -84,8 +84,7 @@ Visualizar todos os posts, visualizar um único post e seus comentários, bem co
 Depois de logado, o usuário pode realizar várias ações dentro do sistema, como: criar postagem, editar postagens próprias, excluir postagens próprias, comentar em postagem, editar sua conta e excluir sua conta.
 
 > Ações do Administrador (Logado):
-Se o usuário tiver privilégios administrativos, poderá realizar ações adicionais, como: excluir qualquer postagem, excluir comentário e excluir qualquer conta de usuário.
-
+Se o usuário tiver privilégios administrativos, poderá realizar ações adicionais, como: excluir qualquer postagem e comentário.
 **Detalhamento das ações em cada página:**
 
 > Página Inicial (Home Screen)
