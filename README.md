@@ -5,7 +5,7 @@ Um espaço online dedicado a engenheiros, arquitetos, operários e entusiastas d
 ## Como Configurar e Rodar o Projeto Localmente
 
 > [!IMPORTANT]
-### Instruções de Instalação
+> ### Instruções de Instalação
 
 Este projeto usa Ruby, Rails, PostgreSQL, Devise e Git. Para configurar seu ambiente de desenvolvimento, siga estes passos:
 
@@ -37,8 +37,8 @@ rails db:create
 
 ### 3. Instale as dependências
 
-[!NOTE]
-Para instalar as gems, você precisa ter o bundler instalado. Caso não tenha, você pode instalá-lo com o seguinte comando:
+> [!NOTE]
+> Para instalar as gems, você precisa ter o bundler instalado. Caso não tenha, você pode instalá-lo com o seguinte comando:
 
 ```sh
 gem install bundler
@@ -56,8 +56,8 @@ bundle install
 rails db:migrate
 ```
 
-[!TIP]
-Caso deseje preencher o projeto com dados fictícios, roda o seguinte comando:
+> [!TIP]
+> Caso deseje preencher o projeto com dados fictícios, roda o seguinte comando:
 
 ```sh
 rails db:seed
