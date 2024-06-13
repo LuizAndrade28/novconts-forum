@@ -53,7 +53,10 @@ gem "bootstrap", "~> 5.2"
 
 # Use Devise for user authentication
 gem "devise"
-gem 'devise-i18n'
+gem "devise-i18n"
+
+# Use rails-i18n for internationalization
+gem "rails-i18n"
 
 # Use autoprefixer for CSS vendor prefixes
 gem "autoprefixer-rails"
