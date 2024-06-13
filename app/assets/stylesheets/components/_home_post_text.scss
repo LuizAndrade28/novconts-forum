@@ -1,10 +1,16 @@
 #text-comp {
   background-color:rgba(211, 211, 211, 0.49);
-  font-weight: bolder;
-  font-size: .8em;
+  font-size: 2vmin;
+  text-align: justify;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+#title-comp {
+  font-size: 3vmin;
+  font-weight: bold;
+  margin-bottom: 2vmin;
 }
 
 #comments-comp {
@@ -19,13 +25,22 @@
   margin-top: 8px;
 }
 
+#comments-comp p {
+  font-size: 2.2vmin;
+}
+
+#comments-comp i {
+  font-size: 2vmin;
+  color: #4b588969;
+}
+
 .user-name {
-  font-size: .9em;
+  font-size: 2.2vmin;
   color: #3a383a;
 }
 
 .dot-post {
   color: #878da7;
-  font-size: .4em;
+  font-size: .8vmin;
   margin: 1px;
 }

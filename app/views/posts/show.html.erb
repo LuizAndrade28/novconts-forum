@@ -58,7 +58,7 @@
   <% @comments.each do |comment| %>
     <div class="d-flex align-items-start">
       <span class="avatar-post-small p-2 me-2">
-        <%= @post.user.first_name[0].capitalize %>
+        <%= comment.user.first_name[0].capitalize %>
       </span>
       <div id="cms">
         <div class="d-flex justify-content-start align-items-center">

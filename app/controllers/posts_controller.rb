@@ -11,14 +11,14 @@ class PostsController < ApplicationController
     case params[:sort_by]
     when "created_at_asc"
       @posts = @posts.order(created_at: :asc)
-    when "created_at_desc"
+    when "created_at_desc" || ""
       @posts = @posts.order(created_at: :desc)
     when "title_asc"
       @posts = @posts.order(title: :asc)
     when "title_desc"
       @posts = @posts.order(title: :desc)
     else
-      @posts = @posts.order(created_at: :desc) # Default sorting
+      @posts
     end
   end
 

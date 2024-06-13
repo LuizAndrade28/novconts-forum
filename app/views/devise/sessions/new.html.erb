@@ -8,16 +8,14 @@
         <%= f.error_notification message: f.object.errors[:base].to_sentence %>
       <% end %>
 
-      <div class="form-inputs mt-3">
+      <div class="form-inputs mt-3 p-text-sizing">
         <%= f.input :email,
                     required: false,
                     autofocus: true,
-                    placeholder: "Digite seu email",
                     input_html: { autocomplete: "email" } %>
         <%= f.input :password,
                     :label => 'Senha',
                     required: false,
-                    placeholder: "Digite sua senha",
                     input_html: { autocomplete: "current-password" } %>
         <%= f.input :remember_me, :label => 'Lembrar', as: :boolean if devise_mapping.rememberable? %>
       </div>
@@ -25,7 +23,7 @@
       <div class="form-actions d-flex mt-4">
         <%= f.button :submit,
                      "Entrar",
-                     class: 'rounded-3 shadow-sm flex-grow-1 btn btn-outline-primary my-2 mb-4 me-3 w-100' %>
+                     class: 'rounded-3 shadow-sm flex-grow-1 btn btn-outline-primary my-2 mb-4 me-3 w-100 p-text-sizing' %>
         <%= render "devise/shared/links" %>
       </div>
     <% end %>

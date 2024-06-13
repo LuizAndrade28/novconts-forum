@@ -8,7 +8,7 @@
         <%= f.error_notification message: f.object.errors[:base].to_sentence %>
       <% end %>
 
-      <div class="form-inputs">
+      <div class="form-inputs p-text-sizing">
         <%= f.input :first_name,
                     label: "Nome",
                     required: true,
@@ -35,7 +35,7 @@
       <div class="form-actions d-flex">
         <%= f.button :submit,
                     "Confirmar cadastro",
-                    class: 'rounded-3 shadow-sm flex-grow-1 btn btn-outline-primary my-2 mb-4 me-3 w-100' %>
+                    class: 'rounded-3 shadow-sm flex-grow-1 btn btn-outline-primary my-2 mb-4 me-3 w-100 p-text-sizing' %>
       </div>
     <% end %>
 
