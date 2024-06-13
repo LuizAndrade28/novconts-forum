@@ -28,7 +28,9 @@
   </div>
 
   <%# POST CONTENT %>
-  <p id="content-vp"><%= @post.content %></p>
+  <div id="content-vp">
+    <p><%= @post.content %></p>
+  </div>
 
   <%# LINKS TO EDIT OR DELETE POST IF POST OWNER // IF ADMIN, ONLY DELETE %>
   <div class="d-flex">
@@ -49,9 +51,7 @@
   <%# HEADER AND ADD COMMENT SECTION %>
   <div id="add-cms">
     <p class="me-4">Comentários (<%= @post.comments.size %>)</p>
-    <% if @post&.user != current_user %>
-      <%= link_to "Adicionar comentário", new_post_comment_path(@post), id: "add-comment" %>
-    <% end %>
+    <%= link_to "Adicionar comentário", new_post_comment_path(@post), id: "add-comment" %>
   </div>
 
   <%# COMMENTS CARDS %>
@@ -66,11 +66,11 @@
           <i class="fa-solid fa-circle me-3 dot-post"></i>
           <p class="fst-italic user-name"><%= comment.created_at.strftime("%d/%m/%Y") %></p>
         </div>
-        <p><%= comment.content %></p>
+        <p id="limit-cms"><%= comment.content %></p>
       </div>
     </div>
 
-    <%# LINK TO DELETE POST IF USER IS ADMIN %>
+    <%# LINK TO DELETE COMMENT IF USER IS ADMIN %>
     <% if policy(comment).destroy? %>
       <%= link_to "Deletar", post_comment_path(@post, comment),
       data: { turbo_method: :delete,
