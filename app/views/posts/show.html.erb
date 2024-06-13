@@ -49,9 +49,7 @@
   <%# HEADER AND ADD COMMENT SECTION %>
   <div id="add-cms">
     <p class="me-4">Comentários (<%= @post.comments.size %>)</p>
-    <% if @post&.user != current_user %>
-      <%= link_to "Adicionar comentário", new_post_comment_path(@post), id: "add-comment" %>
-    <% end %>
+    <%= link_to "Adicionar comentário", new_post_comment_path(@post), id: "add-comment" %>
   </div>
 
   <%# COMMENTS CARDS %>
@@ -70,7 +68,7 @@
       </div>
     </div>
 
-    <%# LINK TO DELETE POST IF USER IS ADMIN %>
+    <%# LINK TO DELETE COMMENT IF USER IS ADMIN %>
     <% if policy(comment).destroy? %>
       <%= link_to "Deletar", post_comment_path(@post, comment),
       data: { turbo_method: :delete,
