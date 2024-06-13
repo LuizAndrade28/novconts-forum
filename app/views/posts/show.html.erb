@@ -58,23 +58,24 @@
   <% @comments.each do |comment| %>
     <div class="d-flex align-items-start">
       <span class="avatar-post-small p-2 me-2">
-        <%= @post.user.first_name[0].capitalize %>
+        <%= comment.user.first_name[0].capitalize %>
       </span>
       <div id="cms">
         <div class="d-flex justify-content-start align-items-center">
-          <p class="me-3 fst-italic user-name"><%= "#{@post.user.first_name}"%></p>
+          <p class="me-3 fst-italic user-name"><%= "#{comment.user.first_name}"%></p>
           <i class="fa-solid fa-circle me-3 dot-post"></i>
-          <p class="fst-italic user-name"><%= @post.created_at.strftime("%d/%m/%Y") %></p>
+          <p class="fst-italic user-name"><%= comment.created_at.strftime("%d/%m/%Y") %></p>
         </div>
         <p><%= comment.content %></p>
       </div>
     </div>
 
-    <%# LINK TO DELETE POST IF ADMIN %>
+    <%# LINK TO DELETE POST IF USER IS ADMIN %>
     <% if policy(comment).destroy? %>
       <%= link_to "Deletar", post_comment_path(@post, comment),
       data: { turbo_method: :delete,
-      turbo_confirm: "Você tem certeza?" } %>
+      turbo_confirm: "Você tem certeza?" },
+      class: "links-mp" %>
     <% end %>
   <% end %>
 </div>

@@ -12,6 +12,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable,
   devise :database_authenticatable, :registerable, :rememberable, :validatable
 
+  # Searchable attributes
   def self.ransackable_attributes(_auth_object = nil)
     ["first_name", "email"]
   end

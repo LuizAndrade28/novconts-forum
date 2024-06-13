@@ -11,20 +11,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 50vw;
+  width: 60vw;
   height: 10%;
   margin-bottom: 2.5vw;
   margin-top: 2vw;
+}
+
+#header-mp h6 {
+  font-size: 2.4vmin;
+  font-style: italic;
 }
 
 #bottom-mp {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 50vw;
+  width: 60vw;
   height: 10%;
   margin-bottom: 2vw;
   margin-top: .8vw;
+  font-size: 2.4vmin;
 }
 
 .card-mp {
@@ -32,13 +38,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50vw;
+  width: 60vw;
   height: 100%;
   background-color: #E7E7E7;
   padding: 1.5vw;
   border-radius: 10px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   margin-bottom: 5px;
+}
+
+.card-mp a, i, p {
+  color: #3A383A !important;
+  font-size: 2.2vmin;
 }
 
 .card-mp-text {

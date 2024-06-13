@@ -3,23 +3,23 @@
 
   <%# HEADER MY POSTS - CONTAINS TITLE AND FILTER  %>
   <div id="header-mp">
-    <h6 class="fst-italic">Meus posts (<%= @posts_count %>)</h6>
+    <h6>Meus posts (<%= @posts_count %>)</h6>
     <%= render 'sort_mp' %>
   </div>
 
   <%# POSTS SECTION - CONTAINS POSTS CARDS  %>
   <% @posts.each do | post | %>
     <div class="card-mp mb-3">
-      <div class="d-flex justify-content-between w-100 mb-2">
-        <h6><%= link_to truncate(post.title, length: 50), post_path(post), class: "card-mp-text" %></h6>
-        <div class="d-flex">
+      <div class="d-flex justify-content-between align-items-center w-100 mb-2">
+        <div class="d-flex align-items-center">
+          <h6><%= link_to truncate(post.title, length: 50), post_path(post), class: "card-mp-text me-2" %></h6>
           <%= link_to edit_post_path(post) do %>
-          <div><i id="edit-icon" class="fa-solid fa-pen me-3"></i></div>
+          <div><i id="edit-icon" class="fa-solid fa-pen me-1"></i></div>
           <% end %>
           <%= link_to post_path(post),
             data: { turbo_method: :delete,
             turbo_confirm: "Você tem certeza?" } do %>
-            <div><i id="delete-icon" class="fa-solid fa-xmark"></i></div>
+            <div><i id="delete-icon" class="fa-solid fa-xmark me-1"></i></div>
           <% end %>
         </div>
         <p class="fst-italic card-mp-text"><%= post.created_at.strftime("%d/%m/%Y") %></p>

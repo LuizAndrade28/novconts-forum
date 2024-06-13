@@ -4,13 +4,13 @@
     <%= f.error_notification message: f.object.errors[:base].to_sentence %>
   <% end %>
 
-  <div class="form-inputs">
+  <div class="form-inputs p-text-sizing">
     <%= f.input :title, label: 'Título' %>
     <%= f.input :content, label: 'Conteúdo', as: :text, input_html: { rows: 10, maxlength: "245" } %>
   </div>
 
   <div class="form-actions d-flex pt-4">
-    <%= f.submit "Salvar", class: "flex-grow-1 w-100 btn btn-outline-primary shadow-sm me-3" %>
-    <%= link_to "Voltar", request.referer || root_path, class: "flex-grow-1 w-100 btn btn-outline-primary shadow-sm" %>
+    <%= f.submit "Salvar", class: "flex-grow-1 w-100 btn btn-outline-primary shadow-sm me-3 p-text-sizing" %>
+    <%= link_to "Voltar", request.referer || root_path, class: "flex-grow-1 w-100 btn btn-outline-primary shadow-sm p-text-sizing" %>
   </div>
 <% end %>

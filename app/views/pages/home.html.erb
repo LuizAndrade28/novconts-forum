@@ -2,7 +2,7 @@
   <div class="col-lg-8 col-md-10 col-sm-10 p-0">
 
     <%# SEARCH AND FILTER SECTION %>
-    <div class="d-flex justify-content-between align-items-center mb-3">
+    <div class="d-flex justify-content-between align-items-center mb-1">
       <%= render 'sort_p' %>
       <%= render 'search_form' %>
     </div>
@@ -19,11 +19,11 @@
           <i class="fa-solid fa-circle me-3 dot-post"></i>
           <p class="fst-italic user-name"><%= post.created_at.strftime("%d/%m/%Y") %></p>
         </div>
-          <h5 class="mb-3"><%= truncate(post.title, length: 80) %></h5>
-          <p id="text-comp"><%= truncate(post.content, length: 300) %> <%= link_to 'mostrar mais', post_path(post.id), class:"fst-italic"%></p>
+          <h5 id="title-comp"><%= truncate(post.title, length: 80) %></h5>
+          <p id="text-comp"><%= truncate(post.content, length: 300) %> <%= link_to 'ver mais', post_path(post.id), class:"fst-italic"%></p>
         <div id="comments-comp">
           <p><%= post.comments.size %></p>
-          <i class="fa-regular fa-comment ms-1" style="color: #4b588969;"></i>
+          <i class="fa-regular fa-comment ms-1"></i>
         </div>
       <% end %>
     </div>
