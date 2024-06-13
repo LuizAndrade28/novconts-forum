@@ -85,6 +85,7 @@ Depois de logado, o usuário pode realizar várias ações dentro do sistema, co
 
 > Ações do Administrador (Logado):
 Se o usuário tiver privilégios administrativos, poderá realizar ações adicionais, como: excluir qualquer postagem e comentário.
+
 **Detalhamento das ações em cada página:**
 
 > Página Inicial (Home Screen)
