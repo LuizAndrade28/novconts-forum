@@ -11,8 +11,11 @@ Um espaço online dedicado a engenheiros, arquitetos, operários e entusiastas d
 ### Pré-requisitos:
 
 Ruby (>= 3.1.2): Baixe e instale Ruby do site oficial https://www.ruby-lang.org/en/documentation/installation/. Certifique-se de seguir as instruções para adicionar Ruby ao seu caminho do sistema.
+
 Rails (>= 7.0.4): Instale a gem do Rails usando o comando gem: gem install rails
+
 PostgreSQL: Instale o PostgreSQL do gerenciador de pacotes do seu sistema ou baixe o instalador oficial em https://www.postgresql.org/docs/.
+
 Git: Instale o Git do site oficial https://www.git-scm.com/downloads.
 
 ### Configuração
